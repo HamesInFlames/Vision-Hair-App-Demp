@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <rect width="800" height="1000" fill="rgb(208,208,208)"/>
+  <rect x="555.4845679012345" y="150.38237311385458" width="147.21502057613168" height="97.62345679012347" fill="rgb(155,155,155)" fill-opacity="0.3885180898491084" transform="rotate(16 555.4845679012345 150.38237311385458)"/><rect x="84.34327846364883" y="43.966049382716044" width="154.68004115226336" height="169.77983539094652" fill="rgb(94,94,94)" fill-opacity="0.5686792695473251" transform="rotate(-9 84.34327846364883 43.966049382716044)"/><rect x="157.07030178326474" y="686.5209190672153" width="87.08333333333333" height="252.80041152263374" fill="rgb(118,118,118)" fill-opacity="0.2653013545953361" transform="rotate(13 157.07030178326474 686.5209190672153)"/><circle cx="641.0390946502058" cy="92.09533607681755" r="142.70546124828533" fill="rgb(119,119,119)" fill-opacity="0.44602623456790125"/><rect x="20.186213991769545" y="337.8952331961591" width="269.65329218106996" height="95.98765432098764" fill="rgb(166,166,166)" fill-opacity="0.6914373285322359" transform="rotate(13 20.186213991769545 337.8952331961591)"/>
+  
+  <g fill="none" stroke="#0A0A0A" stroke-width="2.76">
+    <path d="M 354 500 Q 400 466.88 446 500 Q 400 533.12 354 500 Z"/>
+    <circle cx="400" cy="500" r="13.799999999999999"/>
+    <circle cx="400" cy="500" r="4.6000000000000005" fill="#0A0A0A"/>
+  </g>
+  <text x="400" y="966" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" letter-spacing="8" fill="#0A0A0A" fill-opacity="0.55">WORK 01 — PLACEHOLDER</text>
+</svg>

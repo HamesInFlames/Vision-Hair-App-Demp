@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1250" viewBox="0 0 800 1250">
+  <rect width="800" height="1250" fill="rgb(220,220,220)"/>
+  <circle cx="262.400548696845" cy="1182.1255572702332" r="62.25180041152264" fill="rgb(114,114,114)" fill-opacity="0.371028377914952"/><rect x="381.68244170096017" y="479.26579646776406" width="220.7530864197531" height="75.17386831275721" fill="rgb(153,153,153)" fill-opacity="0.3809713648834019" transform="rotate(1 381.68244170096017 479.26579646776406)"/><rect x="26.919753086419753" y="279.63016546639227" width="204.02057613168722" height="206.09567901234567" fill="rgb(178,178,178)" fill-opacity="0.2638074417009602" transform="rotate(-18 26.919753086419753 279.63016546639227)"/><rect x="520.2229080932784" y="486.8875385802468" width="224.81893004115227" height="211.58539094650206" fill="rgb(160,160,160)" fill-opacity="0.6384130658436213" transform="rotate(-2 520.2229080932784 486.8875385802468)"/><circle cx="91.51577503429355" cy="245.75081447187927" r="143.2175925925926" fill="rgb(154,154,154)" fill-opacity="0.2665402091906722"/>
+  
+  <g fill="none" stroke="#0A0A0A" stroke-width="2.76">
+    <path d="M 354 625 Q 400 591.88 446 625 Q 400 658.12 354 625 Z"/>
+    <circle cx="400" cy="625" r="13.799999999999999"/>
+    <circle cx="400" cy="625" r="4.6000000000000005" fill="#0A0A0A"/>
+  </g>
+  <text x="400" y="1216" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" letter-spacing="8" fill="#0A0A0A" fill-opacity="0.55">WORK 08 — PLACEHOLDER</text>
+</svg>

@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+/* ── VZN design tokens ─────────────────────────────────────────────
+   White-dominant monochrome. These four colors are the entire palette. */
+@theme {
+  --color-ink: #0a0a0a;
+  --color-paper: #ffffff;
+  --color-smoke: #8a8a8a;
+  --color-hairline: #eaeaea;
+
+  --tracking-eyebrow: 0.22em;
+}
+
+@theme inline {
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-body antialiased;
+  }
+
+  ::selection {
+    @apply bg-ink text-paper;
+  }
+
+  /* Visible focus, on-brand: a plain 2px black outline. */
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+  }
+  [data-inverted] :focus-visible {
+    outline-color: var(--color-paper);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+@utility eyebrow {
+  @apply text-[11px] uppercase font-medium text-smoke;
+  letter-spacing: var(--tracking-eyebrow);
+}
+
+@utility display-tight {
+  @apply font-display font-bold uppercase leading-[0.92] tracking-[-0.02em];
+}
+
+/* ── Marquee ──────────────────────────────────────────────────── */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility animate-marquee {
+  animation: marquee 28s linear infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}

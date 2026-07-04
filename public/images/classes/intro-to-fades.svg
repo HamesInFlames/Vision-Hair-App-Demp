@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="rgb(225,225,225)"/>
+  <rect x="80" y="120" width="1040" height="480" fill="rgb(150,150,150)" fill-opacity="0.5"/>
+  
+  <g fill="none" stroke="#0A0A0A" stroke-width="4.2">
+    <path d="M 530 360 Q 600 309.6 670 360 Q 600 410.4 530 360 Z"/>
+    <circle cx="600" cy="360" r="21"/>
+    <circle cx="600" cy="360" r="7" fill="#0A0A0A"/>
+  </g>
+  <text x="600" y="690" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="8" fill="#0A0A0A">INTRO TO FADES</text>
+  <text x="600" y="736" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" letter-spacing="6" fill="#8A8A8A">PLACEHOLDER</text>
+</svg>
