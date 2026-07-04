@@ -24,7 +24,7 @@ export default function ClassesSection() {
   return (
     <>
       <Stagger className="grid gap-6 md:grid-cols-2">
-        {classes.map((c) => (
+        {classes.map((c, i) => (
           <StaggerItem key={c.slug}>
             <article className="flex h-full flex-col border border-hairline">
               <div className="relative aspect-[3/2] overflow-hidden bg-hairline">
@@ -32,6 +32,7 @@ export default function ClassesSection() {
                   src={c.image}
                   alt={`${c.name} class — placeholder image`}
                   fill
+                  priority={i === 0}
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover grayscale"
                 />
