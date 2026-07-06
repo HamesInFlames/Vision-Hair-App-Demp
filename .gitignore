@@ -1,16 +1,36 @@
 # dependencies
 /node_modules
 
-# next.js
+# next.js build output
 /.next/
 /out/
 next-env.d.ts
 
-# misc
-.DS_Store
+# production / deployment
+/build
+.vercel
+
+# environment & secrets — never commit these
+.env
+.env*.local
+.env.local
+.env.development
+.env.production
 *.pem
+
+# logs
+logs
+*.log
 npm-debug.log*
-.env*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# editor & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
 
 # typescript
 *.tsbuildinfo
