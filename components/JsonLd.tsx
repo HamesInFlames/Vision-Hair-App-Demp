@@ -1,9 +1,15 @@
-/** Renders a JSON-LD structured-data block. */
+/**
+ * Renders a JSON-LD structured-data block.
+ * `<` is escaped so a string value can never break out of the <script> tag,
+ * even if this data ever stops being statically authored.
+ */
 export default function JsonLd({ data }: { data: Record<string, unknown> }) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(data).replace(/</g, "\\u003c"),
+      }}
     />
   );
 }
