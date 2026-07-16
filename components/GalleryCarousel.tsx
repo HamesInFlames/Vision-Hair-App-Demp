@@ -22,8 +22,14 @@ export default function GalleryCarousel({ images }: { images: string[] }) {
 
   useEffect(() => {
     if (!emblaApi) return;
-    onScroll();
+    // Sync the bar to the carousel's current position on mount/remount
+    // without a synchronous setState inside the effect body.
+    const raf = requestAnimationFrame(onScroll);
     emblaApi.on("scroll", onScroll).on("reInit", onScroll);
+    return () => {
+      cancelAnimationFrame(raf);
+      emblaApi.off("scroll", onScroll).off("reInit", onScroll);
+    };
   }, [emblaApi, onScroll]);
 
   return (

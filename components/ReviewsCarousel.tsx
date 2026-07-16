@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useMemo } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useReducedMotion } from "framer-motion";
@@ -32,12 +32,14 @@ function Stars({ rating }: { rating: number }) {
  */
 export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
   const reduced = useReducedMotion();
-  const autoplay = useRef(
-    Autoplay({ delay: 3500, stopOnInteraction: true, stopOnMouseEnter: true })
+  const autoplay = useMemo(
+    () =>
+      Autoplay({ delay: 3500, stopOnInteraction: true, stopOnMouseEnter: true }),
+    []
   );
   const [emblaRef] = useEmblaCarousel(
     { loop: true, align: "start" },
-    reduced ? [] : [autoplay.current]
+    reduced ? [] : [autoplay]
   );
 
   return (

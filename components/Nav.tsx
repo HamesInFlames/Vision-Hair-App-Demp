@@ -33,11 +33,6 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close the overlay on route change
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
-
   // Scroll lock + focus trap while the mobile menu is open
   useEffect(() => {
     if (!menuOpen) return;
@@ -186,6 +181,7 @@ export default function Nav() {
                 >
                   <Link
                     href={l.href}
+                    onClick={() => setMenuOpen(false)}
                     className="display-tight block py-2 text-5xl text-paper transition-opacity hover:opacity-60 active:opacity-40"
                   >
                     {l.label}

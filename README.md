@@ -50,3 +50,7 @@ There is deliberately **no booking system in this codebase**. Every "Book" butto
 - `data/` — **all editable content (see above)**
 
 SEO is handled per-page via the Metadata API, with LocalBusiness JSON-LD on the home page and Person JSON-LD on each barber profile. Before going live, set the production domain in `data/site.ts` (`url`) so sitemap/OpenGraph URLs are correct. All animations respect `prefers-reduced-motion`.
+
+## Rights
+
+© Vision Hair Studio. All rights reserved — this repo is client work shared for portfolio review only; see [LICENSE](LICENSE). Not open source.
