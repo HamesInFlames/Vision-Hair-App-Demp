@@ -73,7 +73,7 @@ export default function HomePage() {
             <Reveal delay={0.1}>
               <Link
                 href="/barbers"
-                className="group inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.22em]"
+                className="group inline-flex min-h-11 items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.22em] active:opacity-60"
               >
                 Full roster
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -133,7 +133,7 @@ export default function HomePage() {
             <Reveal delay={0.1}>
               <Link
                 href="/gallery"
-                className="group inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.22em]"
+                className="group inline-flex min-h-11 items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.22em] active:opacity-60"
               >
                 View gallery
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -156,7 +156,7 @@ export default function HomePage() {
                 href={site.googleReviewUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.22em]"
+                className="group inline-flex min-h-11 items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.22em] active:opacity-60"
               >
                 Review us on Google
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -188,7 +188,7 @@ export default function HomePage() {
               href={site.instagram.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="display-tight inline-block break-all text-[clamp(1.75rem,6.5vw,5.5rem)] transition-opacity hover:opacity-60"
+              className="display-tight inline-block break-all py-2.5 text-[clamp(1.75rem,6.5vw,5.5rem)] transition-opacity hover:opacity-60 active:opacity-40"
             >
               {site.instagram.handle}
             </a>

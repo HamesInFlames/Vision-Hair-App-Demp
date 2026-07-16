@@ -26,13 +26,14 @@ function Stars({ rating }: { rating: number }) {
 }
 
 /**
- * Auto-playing reviews strip. Pauses on hover; autoplay is skipped entirely
- * for reduced-motion users.
+ * Auto-playing reviews strip. Pauses on hover, stops for good once the user
+ * interacts (drag/swipe); autoplay is skipped entirely for reduced-motion
+ * users.
  */
 export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
   const reduced = useReducedMotion();
   const autoplay = useRef(
-    Autoplay({ delay: 3500, stopOnInteraction: false, stopOnMouseEnter: true })
+    Autoplay({ delay: 3500, stopOnInteraction: true, stopOnMouseEnter: true })
   );
   const [emblaRef] = useEmblaCarousel(
     { loop: true, align: "start" },

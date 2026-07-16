@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* `touch:` — applies on hover-incapable (touch) devices, where hover-reveals
+   and cursor effects don't exist. */
+@custom-variant touch (@media (hover: none));
+
 /* ── VZN design tokens ─────────────────────────────────────────────
    White-dominant monochrome. These four colors are the entire palette. */
 @theme {

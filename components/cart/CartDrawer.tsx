@@ -56,7 +56,7 @@ export default function CartDrawer() {
               <button
                 onClick={closeCart}
                 aria-label="Close cart"
-                className="p-1 hover:opacity-60 transition-opacity"
+                className="-m-2 p-3 hover:opacity-60 active:opacity-40 transition-opacity"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -92,7 +92,7 @@ export default function CartDrawer() {
                         <div className="flex items-center border border-hairline">
                           <button
                             aria-label={`Decrease quantity of ${item.name}`}
-                            className="p-1.5 hover:bg-hairline transition-colors"
+                            className="flex h-11 w-11 items-center justify-center hover:bg-hairline active:bg-hairline transition-colors"
                             onClick={() => setQty(item.slug, item.size, item.qty - 1)}
                           >
                             <Minus className="h-3.5 w-3.5" />
@@ -100,7 +100,7 @@ export default function CartDrawer() {
                           <span className="w-8 text-center text-sm">{item.qty}</span>
                           <button
                             aria-label={`Increase quantity of ${item.name}`}
-                            className="p-1.5 hover:bg-hairline transition-colors"
+                            className="flex h-11 w-11 items-center justify-center hover:bg-hairline active:bg-hairline transition-colors"
                             onClick={() => setQty(item.slug, item.size, item.qty + 1)}
                           >
                             <Plus className="h-3.5 w-3.5" />
@@ -108,7 +108,7 @@ export default function CartDrawer() {
                         </div>
                         <button
                           aria-label={`Remove ${item.name} from cart`}
-                          className="p-1.5 text-smoke hover:text-ink transition-colors"
+                          className="flex h-11 w-11 items-center justify-center text-smoke hover:text-ink active:text-ink transition-colors"
                           onClick={() => removeItem(item.slug, item.size)}
                         >
                           <Trash2 className="h-4 w-4" />
@@ -120,7 +120,7 @@ export default function CartDrawer() {
               </ul>
             )}
 
-            <div className="border-t border-hairline px-6 py-5">
+            <div className="border-t border-hairline px-6 py-5 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
               <div className="mb-4 flex items-center justify-between text-sm">
                 <span className="text-smoke">Subtotal</span>
                 <span className="font-semibold">{fmt(subtotal)}</span>

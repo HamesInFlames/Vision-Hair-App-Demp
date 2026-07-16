@@ -24,28 +24,28 @@ export default function HoursMap() {
           </ul>
         </div>
 
-        <div className="space-y-3 text-sm">
+        <div className="text-sm">
           <a
             href={site.mapLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-start gap-3 transition-opacity hover:opacity-60"
+            className="flex min-h-11 items-center gap-3 transition-opacity hover:opacity-60 active:opacity-40"
           >
-            <MapPin className="mt-0.5 h-4 w-4 shrink-0" strokeWidth={1.5} />
+            <MapPin className="h-4 w-4 shrink-0" strokeWidth={1.5} />
             <span>
               {site.address.street}, {site.address.city}, {site.address.region}
             </span>
           </a>
           <a
             href={`tel:${site.phones.work.tel}`}
-            className="flex items-center gap-3 transition-opacity hover:opacity-60"
+            className="flex min-h-11 items-center gap-3 transition-opacity hover:opacity-60 active:opacity-40"
           >
             <Phone className="h-4 w-4 shrink-0" strokeWidth={1.5} />
             {site.phones.work.label}
           </a>
           <a
             href={`mailto:${site.email}`}
-            className="flex items-center gap-3 transition-opacity hover:opacity-60"
+            className="flex min-h-11 items-center gap-3 transition-opacity hover:opacity-60 active:opacity-40"
           >
             <Mail className="h-4 w-4 shrink-0" strokeWidth={1.5} />
             {site.email}

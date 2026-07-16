@@ -30,7 +30,7 @@ export default async function ProductPage({ params }: Props) {
         <Reveal>
           <Link
             href="/shop"
-            className="group mb-10 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-smoke transition-colors hover:text-ink"
+            className="group mb-8 inline-flex min-h-11 items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-smoke transition-colors hover:text-ink active:text-ink"
           >
             <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-1" />
             All products

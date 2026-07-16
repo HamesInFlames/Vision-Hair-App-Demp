@@ -22,6 +22,7 @@ type Props = {
 export default function Lightbox({ images, index, onClose, onNavigate }: Props) {
   const dialogRef = useRef<HTMLDivElement>(null);
   const restoreFocusRef = useRef<HTMLElement | null>(null);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
   const open = index !== null;
 
   const prev = useCallback(() => {
@@ -93,6 +94,22 @@ export default function Lightbox({ images, index, onClose, onNavigate }: Props) 
     };
   }, [open, onClose, prev, next]);
 
+  // Swipe left/right to navigate on touch; mostly-vertical swipes are
+  // ignored so they don't clash with pinch/scroll gestures.
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (!touchStart.current) return;
+    const dx = e.changedTouches[0].clientX - touchStart.current.x;
+    const dy = e.changedTouches[0].clientY - touchStart.current.y;
+    touchStart.current = null;
+    if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      if (dx < 0) next();
+      else prev();
+    }
+  };
+
   return (
     <AnimatePresence>
       {index !== null && (
@@ -102,7 +119,9 @@ export default function Lightbox({ images, index, onClose, onNavigate }: Props) 
           aria-modal="true"
           aria-label={`Image ${index + 1} of ${images.length}: ${images[index].alt}`}
           data-inverted
-          className="fixed inset-0 z-[90] flex flex-col bg-ink/95 text-paper"
+          className="fixed inset-0 z-[90] flex flex-col bg-ink/95 text-paper pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]"
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -119,7 +138,7 @@ export default function Lightbox({ images, index, onClose, onNavigate }: Props) 
               data-lightbox-close
               onClick={onClose}
               aria-label="Close lightbox"
-              className="p-2 transition-opacity hover:opacity-60"
+              className="p-3 transition-opacity hover:opacity-60 active:opacity-40"
             >
               <X className="h-6 w-6" />
             </button>
@@ -141,14 +160,14 @@ export default function Lightbox({ images, index, onClose, onNavigate }: Props) 
             <button
               onClick={prev}
               aria-label="Previous image"
-              className="absolute left-2 top-1/2 -translate-y-1/2 border border-paper/25 p-2.5 transition-colors hover:bg-paper hover:text-ink md:left-4"
+              className="absolute left-2 top-1/2 -translate-y-1/2 border border-paper/25 p-3 transition-colors hover:bg-paper hover:text-ink active:bg-paper active:text-ink md:left-4"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
             <button
               onClick={next}
               aria-label="Next image"
-              className="absolute right-2 top-1/2 -translate-y-1/2 border border-paper/25 p-2.5 transition-colors hover:bg-paper hover:text-ink md:right-4"
+              className="absolute right-2 top-1/2 -translate-y-1/2 border border-paper/25 p-3 transition-colors hover:bg-paper hover:text-ink active:bg-paper active:text-ink md:right-4"
             >
               <ChevronRight className="h-5 w-5" />
             </button>

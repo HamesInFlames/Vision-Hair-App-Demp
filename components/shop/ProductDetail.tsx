@@ -85,7 +85,7 @@ export default function ProductDetail({ product }: { product: Product }) {
                   key={s}
                   onClick={() => setSize(s)}
                   aria-pressed={size === s}
-                  className={`min-w-12 border px-4 py-2 text-sm font-semibold transition-colors ${
+                  className={`min-h-11 min-w-12 border px-4 py-2 text-sm font-semibold transition-colors active:border-ink ${
                     size === s
                       ? "border-ink bg-ink text-paper"
                       : "border-hairline hover:border-ink"
@@ -100,7 +100,7 @@ export default function ProductDetail({ product }: { product: Product }) {
 
         <button
           onClick={add}
-          className="mt-10 inline-flex w-full items-center justify-center gap-2 bg-ink px-7 py-4 text-[13px] font-semibold uppercase tracking-[0.18em] text-paper transition-colors hover:bg-ink/85 sm:w-auto"
+          className="mt-10 inline-flex w-full items-center justify-center gap-2 bg-ink px-7 py-4 text-[13px] font-semibold uppercase tracking-[0.18em] text-paper transition-colors hover:bg-ink/85 active:bg-ink/70 sm:w-auto"
         >
           {added ? (
             <>

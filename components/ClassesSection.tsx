@@ -69,7 +69,7 @@ export default function ClassesSection() {
 
                 <button
                   onClick={() => reserve(c.name)}
-                  className="mt-6 w-max bg-ink px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.18em] text-paper transition-colors hover:bg-ink/85"
+                  className="mt-6 inline-flex min-h-11 w-max items-center bg-ink px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.18em] text-paper transition-colors hover:bg-ink/85 active:bg-ink/70"
                 >
                   Reserve a spot
                 </button>

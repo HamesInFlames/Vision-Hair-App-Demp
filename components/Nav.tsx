@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
@@ -24,6 +24,7 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const { count, openCart } = useCart();
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -37,12 +38,33 @@ export default function Nav() {
     setMenuOpen(false);
   }, [pathname]);
 
-  // Scroll lock while the mobile menu is open
+  // Scroll lock + focus trap while the mobile menu is open
   useEffect(() => {
     if (!menuOpen) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMenuOpen(false);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        return;
+      }
+      if (e.key === "Tab" && headerRef.current) {
+        const focusables = Array.from(
+          headerRef.current.querySelectorAll<HTMLElement>('a[href], button')
+        ).filter((el) => el.offsetParent !== null);
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        const active = document.activeElement;
+        if (e.shiftKey && (active === first || !headerRef.current.contains(active))) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && active === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
     document.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = prev;
@@ -52,7 +74,8 @@ export default function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 ${
+      ref={headerRef}
+      className={`fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)] transition-[background-color,border-color,backdrop-filter] duration-300 ${
         scrolled
           ? "border-b border-hairline bg-paper/90 backdrop-blur-md"
           : "border-b border-transparent bg-transparent"
@@ -64,7 +87,7 @@ export default function Nav() {
       >
         <Link
           href="/"
-          className="flex items-center gap-2.5 font-display text-lg font-bold tracking-tight"
+          className="flex min-h-11 items-center gap-2.5 py-2 font-display text-lg font-bold tracking-tight"
           aria-label="Vision Hair Studio — home"
         >
           <EyeMark className="h-5 w-8" />
@@ -89,7 +112,7 @@ export default function Nav() {
           <button
             onClick={openCart}
             aria-label={`Open cart, ${count} item${count === 1 ? "" : "s"}`}
-            className="relative p-2 transition-opacity hover:opacity-60"
+            className="relative p-3 transition-opacity hover:opacity-60 active:opacity-40"
           >
             <ShoppingBag className="h-5 w-5" strokeWidth={1.5} />
             {count > 0 && (
@@ -113,7 +136,7 @@ export default function Nav() {
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
-            className={`relative z-[90] flex h-10 w-10 flex-col items-center justify-center gap-[5px] lg:hidden ${
+            className={`relative z-[90] flex h-11 w-11 flex-col items-center justify-center gap-[5px] lg:hidden ${
               menuOpen ? "text-paper" : "text-ink"
             }`}
           >
@@ -141,7 +164,7 @@ export default function Nav() {
         {menuOpen && (
           <motion.div
             data-inverted
-            className="fixed inset-0 z-[80] flex h-dvh flex-col bg-ink px-6 pb-10 pt-24 text-paper lg:hidden"
+            className="fixed inset-0 z-[80] flex h-dvh flex-col bg-ink px-6 text-paper lg:hidden pb-[max(2.5rem,env(safe-area-inset-bottom))] pt-[calc(6rem+env(safe-area-inset-top))]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -163,7 +186,7 @@ export default function Nav() {
                 >
                   <Link
                     href={l.href}
-                    className="display-tight block py-2 text-5xl text-paper transition-opacity hover:opacity-60"
+                    className="display-tight block py-2 text-5xl text-paper transition-opacity hover:opacity-60 active:opacity-40"
                   >
                     {l.label}
                   </Link>
@@ -176,7 +199,7 @@ export default function Nav() {
                 href={site.squireShopUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-paper px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.22em] text-ink"
+                className="inline-flex min-h-11 items-center bg-paper px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.22em] text-ink active:bg-hairline"
               >
                 Book now
               </a>
@@ -184,7 +207,7 @@ export default function Nav() {
                 href={site.instagram.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="eyebrow text-paper/70 hover:text-paper transition-colors"
+                className="eyebrow inline-flex min-h-11 items-center text-paper/70 hover:text-paper active:text-paper transition-colors"
               >
                 {site.instagram.handle}
               </a>

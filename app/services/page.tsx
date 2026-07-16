@@ -56,7 +56,7 @@ export default function ServicesPage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`Book ${s.name} on Squire`}
-                        className="col-span-2 mt-2 inline-flex w-max items-center gap-1.5 border border-ink px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] transition-colors hover:bg-ink hover:text-paper sm:col-span-1 sm:mt-0"
+                        className="col-span-2 mt-2 inline-flex min-h-11 w-max items-center gap-1.5 border border-ink px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] transition-colors hover:bg-ink hover:text-paper active:bg-ink active:text-paper sm:col-span-1 sm:mt-0"
                       >
                         Book <ArrowUpRight className="h-3.5 w-3.5" />
                       </a>

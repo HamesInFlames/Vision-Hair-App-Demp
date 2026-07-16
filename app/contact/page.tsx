@@ -45,21 +45,21 @@ export default function ContactPage() {
 
               <div>
                 <p className="eyebrow mb-4">Phone</p>
-                <ul className="space-y-2 text-sm">
+                <ul className="text-sm">
                   <li>
-                    <a href={`tel:${site.phones.work.tel}`} className="flex items-center gap-3 transition-opacity hover:opacity-60">
+                    <a href={`tel:${site.phones.work.tel}`} className="flex min-h-11 items-center gap-3 transition-opacity hover:opacity-60 active:opacity-40">
                       <Phone className="h-4 w-4" strokeWidth={1.5} />
                       {site.phones.work.label} <span className="text-smoke">— studio</span>
                     </a>
                   </li>
                   <li>
-                    <a href={`tel:${site.phones.cell1.tel}`} className="flex items-center gap-3 transition-opacity hover:opacity-60">
+                    <a href={`tel:${site.phones.cell1.tel}`} className="flex min-h-11 items-center gap-3 transition-opacity hover:opacity-60 active:opacity-40">
                       <Phone className="h-4 w-4" strokeWidth={1.5} />
                       {site.phones.cell1.label} <span className="text-smoke">— cell</span>
                     </a>
                   </li>
                   <li>
-                    <a href={`tel:${site.phones.cell2.tel}`} className="flex items-center gap-3 transition-opacity hover:opacity-60">
+                    <a href={`tel:${site.phones.cell2.tel}`} className="flex min-h-11 items-center gap-3 transition-opacity hover:opacity-60 active:opacity-40">
                       <Phone className="h-4 w-4" strokeWidth={1.5} />
                       {site.phones.cell2.label} <span className="text-smoke">— cell</span>
                     </a>
@@ -69,9 +69,9 @@ export default function ContactPage() {
 
               <div>
                 <p className="eyebrow mb-4">Email & social</p>
-                <ul className="space-y-2 text-sm">
+                <ul className="text-sm">
                   <li>
-                    <a href={`mailto:${site.email}`} className="flex items-center gap-3 transition-opacity hover:opacity-60">
+                    <a href={`mailto:${site.email}`} className="flex min-h-11 items-center gap-3 transition-opacity hover:opacity-60 active:opacity-40">
                       <Mail className="h-4 w-4" strokeWidth={1.5} />
                       {site.email}
                     </a>
@@ -81,7 +81,7 @@ export default function ContactPage() {
                       href={site.instagram.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 transition-opacity hover:opacity-60"
+                      className="flex min-h-11 items-center gap-3 transition-opacity hover:opacity-60 active:opacity-40"
                     >
                       <Instagram className="h-4 w-4" strokeWidth={1.5} />
                       {site.instagram.handle}
