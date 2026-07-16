@@ -35,8 +35,9 @@ export default function BarberCard({
           className="object-cover grayscale transition-transform duration-500 ease-out group-hover:scale-[1.04]"
         />
 
-        {/* Hover reveal: specialties + book */}
-        <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-ink/80 via-ink/20 to-transparent p-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+        {/* Specialties + book: revealed on hover; always visible on touch
+            devices, where hover doesn't exist. */}
+        <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-ink/80 via-ink/20 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100 touch:opacity-100 sm:p-5">
           {barber.specialties.length > 0 && (
             <p className="mb-3 text-xs uppercase tracking-[0.18em] text-paper/85">
               {barber.specialties.join(" · ")}
@@ -46,7 +47,7 @@ export default function BarberCard({
             href={barber.squireUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative z-20 inline-flex w-max items-center gap-1.5 bg-paper px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink transition-colors hover:bg-hairline"
+            className="relative z-20 inline-flex min-h-11 w-max items-center gap-1.5 bg-paper px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink transition-colors hover:bg-hairline active:bg-hairline"
           >
             Book now <ArrowUpRight className="h-3.5 w-3.5" />
           </a>

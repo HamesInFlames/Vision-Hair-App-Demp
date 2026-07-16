@@ -22,7 +22,7 @@ export default function Footer() {
                 href={site.mapLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-2 transition-colors hover:text-paper"
+                className="flex min-h-11 items-start gap-2 py-1 transition-colors hover:text-paper active:text-paper"
               >
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0" strokeWidth={1.5} />
                 <span>
@@ -50,15 +50,15 @@ export default function Footer() {
 
           <div>
             <p className="eyebrow mb-5 text-paper/50">Contact</p>
-            <ul className="space-y-2 text-sm text-paper/80">
+            <ul className="text-sm text-paper/80">
               <li>
-                <a href={`tel:${site.phones.work.tel}`} className="flex items-center gap-2 transition-colors hover:text-paper">
+                <a href={`tel:${site.phones.work.tel}`} className="flex min-h-11 items-center gap-2 transition-colors hover:text-paper active:text-paper">
                   <Phone className="h-4 w-4" strokeWidth={1.5} />
                   {site.phones.work.label}
                 </a>
               </li>
               <li>
-                <a href={`mailto:${site.email}`} className="flex items-center gap-2 transition-colors hover:text-paper">
+                <a href={`mailto:${site.email}`} className="flex min-h-11 items-center gap-2 transition-colors hover:text-paper active:text-paper">
                   <Mail className="h-4 w-4" strokeWidth={1.5} />
                   {site.email}
                 </a>
@@ -68,7 +68,7 @@ export default function Footer() {
                   href={site.instagram.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 transition-colors hover:text-paper"
+                  className="flex min-h-11 items-center gap-2 transition-colors hover:text-paper active:text-paper"
                 >
                   <Instagram className="h-4 w-4" strokeWidth={1.5} />
                   {site.instagram.handle}
@@ -79,7 +79,7 @@ export default function Footer() {
 
           <div>
             <p className="eyebrow mb-5 text-paper/50">Menu</p>
-            <ul className="space-y-2 text-sm text-paper/80">
+            <ul className="text-sm text-paper/80">
               {[
                 ["Visionaries", "/barbers"],
                 ["Services", "/services"],
@@ -89,7 +89,7 @@ export default function Footer() {
                 ["Contact", "/contact"],
               ].map(([label, href]) => (
                 <li key={href}>
-                  <Link href={href} className="transition-colors hover:text-paper">
+                  <Link href={href} className="flex min-h-11 items-center transition-colors hover:text-paper active:text-paper">
                     {label}
                   </Link>
                 </li>
@@ -108,7 +108,7 @@ export default function Footer() {
               href={site.squireShopUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-2 transition-colors hover:text-paper"
+              className="-my-3 inline-flex min-h-11 items-center underline underline-offset-2 transition-colors hover:text-paper active:text-paper"
             >
               Squire
             </a>

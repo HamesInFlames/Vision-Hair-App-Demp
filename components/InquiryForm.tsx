@@ -73,8 +73,9 @@ export default function InquiryForm({
     );
   }
 
+  // 16px input text — anything smaller makes iOS Safari zoom in on focus.
   const inputCls =
-    "w-full border border-hairline bg-paper px-4 py-3 text-sm placeholder:text-smoke/70 focus:border-ink";
+    "w-full border border-hairline bg-paper px-4 py-3 text-base placeholder:text-smoke/70 focus:border-ink";
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5">

@@ -54,7 +54,7 @@ export default async function BarberProfilePage({ params }: Props) {
         <Reveal>
           <Link
             href="/barbers"
-            className="group mb-10 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-smoke transition-colors hover:text-ink"
+            className="group mb-8 inline-flex min-h-11 items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-smoke transition-colors hover:text-ink active:text-ink"
           >
             <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-1" />
             All Visionaries
@@ -107,7 +107,7 @@ export default async function BarberProfilePage({ params }: Props) {
                     href={barber.instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-ink transition-opacity hover:opacity-60"
+                    className="inline-flex min-h-11 items-center gap-2 py-2 text-ink transition-opacity hover:opacity-60 active:opacity-40"
                   >
                     <Instagram className="h-4 w-4" strokeWidth={1.5} />
                     {barber.instagram}
@@ -164,13 +164,14 @@ export default async function BarberProfilePage({ params }: Props) {
         </div>
       </div>
 
-      {/* Sticky book bar (mobile) */}
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-hairline bg-paper/95 p-3 backdrop-blur-md lg:hidden">
+      {/* Sticky book bar (mobile) — bottom padding clears the iPhone home
+          indicator via the safe-area inset. */}
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-hairline bg-paper/95 p-3 backdrop-blur-md lg:hidden pb-[max(0.75rem,env(safe-area-inset-bottom))]">
         <a
           href={barber.squireUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex w-full items-center justify-center gap-2 bg-ink px-7 py-3.5 text-[13px] font-semibold uppercase tracking-[0.18em] text-paper"
+          className="flex min-h-11 w-full items-center justify-center gap-2 bg-ink px-7 py-3.5 text-[13px] font-semibold uppercase tracking-[0.18em] text-paper active:bg-ink/70"
         >
           Book with {barber.firstName} <ArrowUpRight className="h-4 w-4" />
         </a>
